@@ -13,9 +13,9 @@ output "wsapi_lambda" {
   value       = module.dual_api.wsapi_lambda
 }
 
-output "website_domain_name" {
-  description = "Domain name for the website."
-  value       = module.dual_api.website_domain_name
+output "website_domain_names" {
+  description = "Domain names for the website."
+  value       = module.dual_api.website_domain_names
 }
 
 output "wsapi_domain_name" {

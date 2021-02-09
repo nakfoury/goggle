@@ -14,6 +14,13 @@ provider "aws" {
   profile = "goggle"
 }
 
+# Alternate AWS authentication settings, for us-east-1 resources.
+provider "aws" {
+  alias   = "acm"
+  region  = "us-east-1"
+  profile = "goggle"
+}
+
 # Locals are reusable static variables.
 locals {
   name = "goggle"
@@ -44,4 +51,8 @@ module "dual_api" {
   domain_name = local.domain_name
   zone_id     = data.aws_route53_zone.this.zone_id
   tags        = local.tags
+
+  providers = {
+    aws.acm = aws.acm
+  }
 }

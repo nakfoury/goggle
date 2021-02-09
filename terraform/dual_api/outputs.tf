@@ -13,9 +13,9 @@ output "wsapi_lambda" {
   value       = aws_lambda_function.wsapi.function_name
 }
 
-output "website_domain_name" {
-  description = "Domain name for the website."
-  value       = var.domain_name
+output "website_domain_names" {
+  description = "Domain names for the website."
+  value       = local.website_domain_names
 }
 
 output "wsapi_domain_name" {

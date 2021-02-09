@@ -16,7 +16,7 @@ resource "aws_apigatewayv2_domain_name" "restapi" {
   domain_name = local.restapi_domain_name
 
   domain_name_configuration {
-    certificate_arn = aws_acm_certificate_validation.this.certificate_arn
+    certificate_arn = aws_acm_certificate_validation.api.certificate_arn
     endpoint_type   = "REGIONAL"
     security_policy = "TLS_1_2"
   }

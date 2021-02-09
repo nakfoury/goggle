@@ -33,19 +33,16 @@ resource "aws_lambda_function" "wsapi" {
 # Backend IAM role for both Lambda functions.
 resource "aws_iam_role" "backend" {
   name               = "${var.name}-backend"
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-EOF
+  assume_role_policy = data.aws_iam_policy_document.lambda_assume_role.json
   tags               = var.tags
+}
+
+data "aws_iam_policy_document" "lambda_assume_role" {
+  statement {
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole"]
+  }
 }
