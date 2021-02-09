@@ -1,3 +1,4 @@
+# Shared backend state configuration.
 terraform {
   backend "s3" {
     bucket  = "flame-zinger-tf"
@@ -7,57 +8,40 @@ terraform {
   }
 }
 
+# AWS authentication settings.
 provider "aws" {
   region  = "us-west-2"
   profile = "goggle"
 }
 
-provider "aws" {
-  alias   = "us-east-1"
-  region  = "us-east-1"
-  profile = "goggle"
+# Locals are reusable static variables.
+locals {
+  name = "goggle"
+  tags = {
+    project = local.name
+  }
+  domain_name = "freewordgame.com"
 }
 
+# Misc persistent data bucket for the backend.
 resource "aws_s3_bucket" "data" {
-  bucket = "goggle-data"
+  bucket = "${local.name}-data"
+  tags   = local.tags
 }
 
-resource "aws_lambda_function" "restapi" {
-  function_name = "goggleRESTAPI"
-  handler       = "restapi"
-  role          = aws_iam_role.backend.arn
-  runtime       = "go1.x"
-
-  lifecycle {
-    ignore_changes = [filename, source_code_hash]
-  }
+# Lookup the zone by domain name to get the zone ID.
+data "aws_route53_zone" "this" {
+  name = local.domain_name
 }
 
-resource "aws_lambda_function" "wsapi" {
-  function_name = "goggleWSAPI"
-  handler       = "wsapi"
-  role          = aws_iam_role.backend.arn
-  runtime       = "go1.x"
-
-  lifecycle {
-    ignore_changes = [filename, source_code_hash]
-  }
-}
-
-resource "aws_iam_role" "backend" {
-  name               = "goggle-backend"
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-EOF
+# The dual_api module encapsulates resources for a generic website + REST API + websocket API.
+#
+# The website will be created on the root domain of the specified Route53 zone. The REST API will
+# be on an "api" subdomain. The websocket API will be on a "ws" subdomain.
+module "dual_api" {
+  source      = "./dual_api"
+  name        = local.name
+  domain_name = local.domain_name
+  zone_id     = data.aws_route53_zone.this.zone_id
+  tags        = local.tags
 }
