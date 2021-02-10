@@ -1,0 +1,56 @@
+# This workflow runs Terraform.
+# On pull request events, this workflow will run `terraform init`, `terraform fmt`, and `terraform plan`.
+# On push events to the main branch, `terraform apply` will be executed.
+
+name: 'Terraform'
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Configure AWS credentials
+      - name: Setup AWS Creds
+        uses: Fooji/create-aws-profile-action@v1
+        with:
+          profile: goggle
+          key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # Install the Terraform CLI
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.6
+
+      # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform
+
+      # Checks that all Terraform configuration files adhere to a canonical format
+      - name: Terraform Format
+        run: terraform fmt -check
+        working-directory: terraform
+
+      # Generates an execution plan for Terraform
+      - name: Terraform Plan
+        run: terraform plan
+        working-directory: terraform
+
+        # On push to main, build or change infrastructure according to Terraform configuration files
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve
+        working-directory: terraform

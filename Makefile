@@ -5,6 +5,9 @@ build-backend:
 	go build -o backend/bin/restapi ./backend/cmd/restapi
 	go build -o backend/bin/wsapi ./backend/cmd/wsapi
 
+test-backend:
+	go test -v ./backend/...
+
 run-backend:
 	go run ./backend/cmd/httpbackend
 
@@ -26,4 +29,4 @@ lint-backend:
 lint-backend-fix:
 	go run github.com/golangci/golangci-lint/cmd/golangci-lint run --config ./backend/.golangci.yml --fix ./backend/...
 
-.PHONY: default build-backend run-backend deploy-backend deploy-infra deploy-infra-impatiently fmt-terraform lint-backend lint-backend-fix
+.PHONY: default build-backend test-backend run-backend deploy-backend deploy-infra deploy-infra-impatiently fmt-terraform lint-backend lint-backend-fix

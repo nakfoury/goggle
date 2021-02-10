@@ -1,0 +1,65 @@
+# This workflow is for backend code.
+# On pull request events, it builds, lints, and tests the code.
+# On push events to the main branch, it deploys the code to production.
+name: Backend
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    name: Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Install the Go CLI
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
+
+      # Check that the code builds
+      - name: Build
+        run: make build-backend
+
+      # Run unit tests
+      - name: Test
+        run: make test-backend
+
+      # On push to main, configure AWS credentials
+      - name: Setup AWS Creds
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: Fooji/create-aws-profile-action@v1
+        with:
+          profile: goggle
+          key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # On push to main, deploy to production
+      - name: Deploy
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: make deploy-backend
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Lint the code for formatting and style issues.
+      # We're using the official action instead of a make target because it has caching.
+      - name: Lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: v1.36
+          working-directory: backend
