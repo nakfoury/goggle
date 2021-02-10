@@ -1,0 +1,55 @@
+# This workflow lints and tests the client code.
+# On push events to the main branch, it deploys the code to production.
+
+name: Client
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  client:
+    name: Client
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Install Node.js as well as the yarn CLI
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: yarn install --immutable
+        working-directory: client
+
+      # Lint code formatting and style
+      - name: Lint
+        run: yarn run lint
+        working-directory: client
+
+      # Run unit tests
+      - name: Test
+        run: yarn run test
+        working-directory: client
+
+      # On push to main, configure AWS credentials
+      - name: Setup AWS Creds
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: Fooji/create-aws-profile-action@v1
+        with:
+          profile: goggle
+          key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # On push to main, deploy to production
+      - name: Deploy
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: make deploy-client

@@ -2,7 +2,7 @@
 # On pull request events, this workflow will run `terraform init`, `terraform fmt`, and `terraform plan`.
 # On push events to the main branch, `terraform apply` will be executed.
 
-name: 'Terraform'
+name: Terraform
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: Terraform
     runs-on: ubuntu-latest
 
     steps:

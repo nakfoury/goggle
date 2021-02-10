@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "module": "ES2020",
+    "types": ["svelte", "node", "jest", "@testing-library/jest-dom"]
+  }
+}

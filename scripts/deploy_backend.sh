@@ -10,17 +10,17 @@ package() {
 }
 
 deploy() {
-  AWS_PAGER="" aws lambda update-function-code \
+  AWS_PAGER='' aws lambda update-function-code \
     --profile goggle --region us-west-2 \
     --function-name "goggle-$1" --zip-file "fileb://backend/bin/$1.zip" --publish
 }
 
-echo "Building" &&
+echo 'Building backend' &&
   build restapi &&
   build wsapi &&
-  echo "Packaging" &&
+  echo 'Packaging backend' &&
   package restapi &&
   package wsapi &&
-  echo "Deploying" &&
+  echo 'Deploying backend' &&
   deploy restapi &&
   deploy wsapi
