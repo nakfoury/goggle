@@ -2,12 +2,14 @@
 package main
 
 import (
-	"github.com/armsnyder/aws-websocket-adapter"
-	"github.com/nakfoury/goggle/backend/restapi"
-	"github.com/nakfoury/goggle/backend/wsapi"
-	"golang.org/x/sync/errgroup"
 	"log"
 	"net/http"
+
+	awswebsocketadapter "github.com/armsnyder/aws-websocket-adapter"
+	"golang.org/x/sync/errgroup"
+
+	"github.com/nakfoury/goggle/backend/restapi"
+	"github.com/nakfoury/goggle/backend/wsapi"
 )
 
 func main() {

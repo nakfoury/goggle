@@ -2,13 +2,15 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/apigatewaymanagementapi"
+
 	"github.com/nakfoury/goggle/backend/wsapi"
-	"log"
-	"os"
 )
 
 func main() {

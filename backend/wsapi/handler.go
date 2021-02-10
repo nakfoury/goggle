@@ -4,24 +4,24 @@ package wsapi
 import (
 	"context"
 	"fmt"
-	"github.com/aws/aws-sdk-go/service/apigatewaymanagementapi"
 	"log"
 
 	"github.com/aws/aws-lambda-go/events"
-	apigateway "github.com/aws/aws-sdk-go/service/apigatewaymanagementapi/apigatewaymanagementapiiface"
+	"github.com/aws/aws-sdk-go/service/apigatewaymanagementapi"
+	"github.com/aws/aws-sdk-go/service/apigatewaymanagementapi/apigatewaymanagementapiiface"
 )
 
 // Handler creates a new Goggle Websocket API handler function.
 //
 // The resulting handler can be invoked with lambda.Start directly. It needs to be wrapped in order
 // to use it as a real websocket server.
-func Handler(apiGatewayClient apigateway.ApiGatewayManagementApiAPI) func(context.Context, events.APIGatewayWebsocketProxyRequest) (events.APIGatewayProxyResponse, error) {
+func Handler(apiGatewayClient apigatewaymanagementapiiface.ApiGatewayManagementApiAPI) func(context.Context, events.APIGatewayWebsocketProxyRequest) (events.APIGatewayProxyResponse, error) {
 	return func(ctx context.Context, req events.APIGatewayWebsocketProxyRequest) (events.APIGatewayProxyResponse, error) {
 		return handler(ctx, req, apiGatewayClient)
 	}
 }
 
-func handler(ctx context.Context, req events.APIGatewayWebsocketProxyRequest, apiGatewayClient apigateway.ApiGatewayManagementApiAPI) (resp events.APIGatewayProxyResponse, err error) {
+func handler(ctx context.Context, req events.APIGatewayWebsocketProxyRequest, apiGatewayClient apigatewaymanagementapiiface.ApiGatewayManagementApiAPI) (resp events.APIGatewayProxyResponse, err error) {
 	// Handle the event.
 	switch req.RequestContext.EventType {
 	case "CONNECT":
@@ -55,7 +55,7 @@ func handleDisconnect(ctx context.Context, req events.APIGatewayWebsocketProxyRe
 	return nil
 }
 
-func handleMessage(ctx context.Context, req events.APIGatewayWebsocketProxyRequest, client apigateway.ApiGatewayManagementApiAPI) error {
+func handleMessage(ctx context.Context, req events.APIGatewayWebsocketProxyRequest, client apigatewaymanagementapiiface.ApiGatewayManagementApiAPI) error {
 	log.Printf("Incoming message from %q: %s", req.RequestContext.ConnectionID, req.Body)
 
 	reply := &apigatewaymanagementapi.PostToConnectionInput{

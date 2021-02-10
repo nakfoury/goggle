@@ -1,0 +1,44 @@
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - deadcode
+    - dupl
+    - errcheck
+    - exportloopref
+    - gocognit
+    - gocritic
+    - gocyclo
+    - goimports
+    - golint
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - interfacer
+    - misspell
+    - nakedret
+    - nestif
+    - noctx
+    - nolintlint
+    - scopelint
+    - staticcheck
+    - structcheck
+    - stylecheck
+    - typecheck
+    - unconvert
+    - unused
+    - varcheck
+    - whitespace
+
+linters-settings:
+  errcheck:
+    exclude: ./errcheck_excludes.txt
+  goimports:
+    local-prefixes: github.com/nakfoury/goggle
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - scopelint

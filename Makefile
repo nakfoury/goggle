@@ -20,4 +20,10 @@ deploy-infra-impatiently:
 fmt-terraform:
 	cd terraform && terraform fmt -recursive
 
-.PHONY: default build-backend run-backend deploy-backend deploy-infra deploy-infra-impatiently fmt-terraform
+lint-backend:
+	go run github.com/golangci/golangci-lint/cmd/golangci-lint run --config ./backend/.golangci.yml ./backend/...
+
+lint-backend-fix:
+	go run github.com/golangci/golangci-lint/cmd/golangci-lint run --config ./backend/.golangci.yml --fix ./backend/...
+
+.PHONY: default build-backend run-backend deploy-backend deploy-infra deploy-infra-impatiently fmt-terraform lint-backend lint-backend-fix
