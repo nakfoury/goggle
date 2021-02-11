@@ -25,7 +25,7 @@ jobs:
         working-directory: client
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: yarn install --immutable
@@ -39,7 +39,7 @@ jobs:
     needs: [ check ]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - working-directory: client
