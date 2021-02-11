@@ -84,8 +84,15 @@ export default {
     // creating a production build.
     prodAPI &&
       replace({
-        'http://localhost:8081': 'https://api.freewordgames.com',
-        'ws://localhost:8082': 'wss://ws.freewordgames.com',
+        'http://localhost:8081': 'https://api.freewordgame.com',
+        'ws://localhost:8082': 'wss://ws.freewordgame.com',
+      }),
+
+    // In production, always enable CORS.
+    // (It may be disabled in code in order test the prod API from localhost.)
+    production &&
+      replace({
+        'no-cors': 'cors',
       }),
   ],
   watch: {

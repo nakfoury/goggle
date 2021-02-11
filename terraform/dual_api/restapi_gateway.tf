@@ -8,6 +8,10 @@ resource "aws_apigatewayv2_api" "restapi" {
   protocol_type                = "HTTP"
   disable_execute_api_endpoint = true
   tags                         = var.tags
+
+  cors_configuration {
+    allow_origins = toset(formatlist("https://%s", local.website_domain_names))
+  }
 }
 
 # Route all requests to the RESTAPI Lambda function.
