@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	awswebsocketadapter "github.com/armsnyder/aws-websocket-adapter"
+	"github.com/armsnyder/awswebsocketadapter"
 	"github.com/gin-contrib/cors"
 	"golang.org/x/sync/errgroup"
 

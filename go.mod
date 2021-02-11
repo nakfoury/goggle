@@ -3,9 +3,9 @@ module github.com/nakfoury/goggle
 go 1.15
 
 require (
-	github.com/armsnyder/aws-websocket-adapter v0.0.2
+	github.com/armsnyder/awswebsocketadapter v0.0.3
 	github.com/aws/aws-lambda-go v1.22.0
-	github.com/aws/aws-sdk-go v1.37.8
+	github.com/aws/aws-sdk-go v1.37.9
 	github.com/awslabs/aws-lambda-go-api-proxy v0.9.0
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.6.3
