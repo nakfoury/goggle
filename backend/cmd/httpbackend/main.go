@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	awswebsocketadapter "github.com/armsnyder/aws-websocket-adapter"
+	"github.com/gin-contrib/cors"
 	"golang.org/x/sync/errgroup"
 
 	"github.com/nakfoury/goggle/backend/restapi"
@@ -28,7 +29,10 @@ func main() {
 }
 
 func serveRESTAPI() error {
-	restServer := restapi.Handler()
+	// Disable CORS errors when running locally, since the web client will be on a different port.
+	middleware := cors.New(cors.Config{AllowAllOrigins: true})
+
+	restServer := restapi.Handler(middleware)
 	addr := ":8081"
 
 	log.Printf("Listening and serving REST API on %s", addr)
