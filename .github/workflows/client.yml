@@ -15,7 +15,7 @@ env:
 jobs:
   # Build, lint, and test the code.
   check:
-    name: Check
+    name: Client
     strategy:
       matrix:
         target: [ build, lint, test ]
@@ -33,7 +33,7 @@ jobs:
 
   # On push to main, deploy to production
   deploy:
-    name: Deploy
+    name: Deploy Client
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: [ check ]

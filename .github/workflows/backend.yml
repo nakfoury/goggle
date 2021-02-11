@@ -17,7 +17,7 @@ env:
 jobs:
   # Check that the backend can even build
   build:
-    name: Build
+    name: Build Backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
   # Lint the code for formatting and style issues.
   # We're using the official action instead of a make target because it has caching.
   lint:
-    name: Lint
+    name: Lint Backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
 
   # Run unit tests
   test:
-    name: Test
+    name: Test Backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -51,7 +51,7 @@ jobs:
 
   # On push to main, deploy to production
   deploy:
-    name: Deploy
+    name: Deploy Backend
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: [ build, lint, test ]

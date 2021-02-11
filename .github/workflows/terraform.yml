@@ -20,7 +20,7 @@ defaults:
 jobs:
   # Checks that all Terraform configuration files adhere to a canonical format
   lint:
-    name: Lint
+    name: Lint Infrastructure
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
 
   # Generates an execution plan for Terraform
   plan:
-    name: Plan
+    name: Plan Infrastructure
     runs-on: ubuntu-latest
     needs: [ lint ]
     steps:
@@ -49,7 +49,7 @@ jobs:
 
   # On push to main, build or change infrastructure according to Terraform configuration files
   apply:
-    name: Apply
+    name: Apply Infrastructure
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: [ lint, plan ]
