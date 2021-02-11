@@ -1855,7 +1855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^7.1.1, acorn@npm:^7.3.1":
+"acorn@npm:^7.1.1":
   version: 7.4.1
   resolution: "acorn@npm:7.4.1"
   bin:
@@ -2517,24 +2517,24 @@ __metadata:
     "@types/jest": ^26.0.20
     babel-jest: ^26.6.3
     jest: ^26.6.3
-    less: ^3.11.3
-    nollup: ^0.14.4
+    less: ^4.1.1
+    nollup: ^0.15.0
     prettier: ^2.2.1
-    prettier-plugin-svelte: ^1.4.2
-    rollup: ^2.35.1
-    rollup-plugin-css-only: ^3.0.0
+    prettier-plugin-svelte: ^2.1.4
+    rollup: ^2.38.5
+    rollup-plugin-css-only: ^3.1.0
     rollup-plugin-delete: ^2.0.0
     rollup-plugin-hot: ^0.1.1
-    rollup-plugin-svelte: ^7.0.0
+    rollup-plugin-svelte: ^7.1.0
     rollup-plugin-svelte-hot: ^0.13.0
     rollup-plugin-terser: ^7.0.2
-    sirv-cli: ^1.0.10
-    svelte: ^3.31.0
-    svelte-check: ^1.1.22
+    sirv-cli: ^1.0.11
+    svelte: ^3.32.3
+    svelte-check: ^1.1.34
     svelte-jester: ^1.3.0
-    svelte-preprocess: ^4.6.1
-    tslib: ^2.0.3
-    typescript: ^4.1.3
+    svelte-preprocess: ^4.6.7
+    tslib: ^2.1.0
+    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2866,7 +2866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.0.1":
+"debug@npm:^3.0.1, debug@npm:^3.2.6":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
   dependencies:
@@ -3931,7 +3931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.4.24":
+"iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.4":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
   dependencies:
@@ -5016,9 +5016,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less@npm:^3.11.3":
-  version: 3.13.1
-  resolution: "less@npm:3.13.1"
+"less@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "less@npm:4.1.1"
   dependencies:
     copy-anything: ^2.0.1
     errno: ^0.1.1
@@ -5026,7 +5026,8 @@ __metadata:
     image-size: ~0.5.0
     make-dir: ^2.1.0
     mime: ^1.4.1
-    native-request: ^1.0.5
+    needle: ^2.5.2
+    parse-node-version: ^1.0.1
     source-map: ~0.6.0
     tslib: ^1.10.0
   dependenciesMeta:
@@ -5040,13 +5041,13 @@ __metadata:
       optional: true
     mime:
       optional: true
-    native-request:
+    needle:
       optional: true
     source-map:
       optional: true
   bin:
-    lessc: ./bin/lessc
-  checksum: cc1a86d352c561eca57dcd5a96fd9f6f5a43759e8c0588dee9cb2414c6dc60b3cc8522d16ff363ffaba85a0d8cec4372b45e5c18fddd43730f8c78b2fc28d0d2
+    lessc: bin/lessc
+  checksum: a4fb3be59be0fdcc289c24f09e3b856a63d1bb9fa444209a712ce11b2944dad04007ad04c1d3b2708d2df58dbfaec6d8af7a96da80731c359c8927bfe2a97409
   languageName: node
   linkType: hard
 
@@ -5397,17 +5398,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"native-request@npm:^1.0.5":
-  version: 1.0.8
-  resolution: "native-request@npm:1.0.8"
-  checksum: bbb5ec150fe3bec61e76f8170641e0519348bb7de5b1c67fc757c5ca61dc7c539a0984d00c3d89e0b8b8e1fe6d6e52aed144eb725bc0a8693d4dc1633e15cb7a
-  languageName: node
-  linkType: hard
-
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
   checksum: 2daf93d9bb516eddb06e2e80657a605af2e494d47c65d090ba43691aaffbc41f520840f1c9d3b7b641977af950217a4ab6ffb85bafcd5dfa8ba6fe4e68c43b53
+  languageName: node
+  linkType: hard
+
+"needle@npm:^2.5.2":
+  version: 2.6.0
+  resolution: "needle@npm:2.6.0"
+  dependencies:
+    debug: ^3.2.6
+    iconv-lite: ^0.4.4
+    sax: ^1.2.4
+  bin:
+    needle: bin/needle
+  checksum: 0a00060d586b984ccfe89ba95228a9510ec258eeba62349450d590ea5a92831cd997b191f211220bd112236fc8734c7e6cd64d674b7e6d55784fa992d9e3a7a4
   languageName: node
   linkType: hard
 
@@ -5480,7 +5487,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nollup@npm:>=0.8.4":
+"nollup@npm:>=0.8.4, nollup@npm:^0.15.0":
   version: 0.15.0
   resolution: "nollup@npm:0.15.0"
   dependencies:
@@ -5499,28 +5506,6 @@ __metadata:
   bin:
     nollup: lib/cli.js
   checksum: c1e32d750fb2234ef0025534eeaba2876856d824fe5957dfd5671ec00ad85914c961e87330940bc6687f982cca5992287dbac18f2759eabb187c1edf16579888
-  languageName: node
-  linkType: hard
-
-"nollup@npm:^0.14.4":
-  version: 0.14.4
-  resolution: "nollup@npm:0.14.4"
-  dependencies:
-    "@rollup/pluginutils": ^3.0.8
-    acorn: ^7.3.1
-    chokidar: ^3.0.0
-    convert-source-map: ^1.5.1
-    express: ^4.16.3
-    express-history-api-fallback: ^2.2.1
-    express-http-proxy: ^1.5.1
-    express-ws: ^4.0.0
-    magic-string: ^0.25.7
-    mime-types: ^2.1.24
-    source-map: ^0.5.6
-    source-map-fast: "npm:source-map@0.7.3"
-  bin:
-    nollup: lib/cli.js
-  checksum: e168f102656c6bc495cc8a1b822d1646a43cd916d810dfeccb544e57d6a8f05ba5fe78a093f1d7b1f10b5872e971de68ac6da18d13910f14922bebbc5b6b0434
   languageName: node
   linkType: hard
 
@@ -5789,6 +5774,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"parse-node-version@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "parse-node-version@npm:1.0.1"
+  checksum: 79ae38178715cd9ebec482d876b8bc773c98e017ccdb50d40937e9d65ece0ebf7eef507ed100e182e352b0bacfe2acba6b3b3b7ae978be20a79a91a4853bb27b
+  languageName: node
+  linkType: hard
+
 "parse5@npm:5.1.1":
   version: 5.1.1
   resolution: "parse5@npm:5.1.1"
@@ -5912,13 +5904,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "prettier-plugin-svelte@npm:1.4.2"
+"prettier-plugin-svelte@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "prettier-plugin-svelte@npm:2.1.4"
   peerDependencies:
     prettier: ^1.16.4 || ^2.0.0
     svelte: ^3.2.0
-  checksum: 2582f2d56dbc4382f25b711b1808597cba14b1a1a2239755e294f80d86a7304236dc265622326a61945aab5b0fd5c73aca3ffaacbe63c0aaff6e1a49adee6703
+  checksum: b28fa4d9fd27773904e814f618186fb90f6566ad8252d96173c801ccab8462cd1045df1a7007b6f88d8db56ba94cdc05f1ce69f830c0dbefb9f201b3a69806f3
   languageName: node
   linkType: hard
 
@@ -6369,7 +6361,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-css-only@npm:^3.0.0":
+"rollup-plugin-css-only@npm:^3.1.0":
   version: 3.1.0
   resolution: "rollup-plugin-css-only@npm:3.1.0"
   dependencies:
@@ -6437,7 +6429,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-svelte@npm:^7.0.0":
+"rollup-plugin-svelte@npm:^7.1.0":
   version: 7.1.0
   resolution: "rollup-plugin-svelte@npm:7.1.0"
   dependencies:
@@ -6473,7 +6465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.35.1":
+"rollup@npm:^2.38.5":
   version: 2.38.5
   resolution: "rollup@npm:2.38.5"
   dependencies:
@@ -6558,6 +6550,13 @@ __metadata:
   bin:
     sane: ./src/cli.js
   checksum: e384e252021b1afef7459e994fe3ea79d114a0e7d23a03e660444abf15a2b4c50ce7eac2810b2c289e857c618d96fb35ee66356ebd4d6cb97cb11b54b2b29600
+  languageName: node
+  linkType: hard
+
+"sax@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "sax@npm:1.2.4"
+  checksum: 9d7668d69105e89e2c1a4b2fdc12c72e1a2f78b825f7b4a8a2ea5cdfebf70920bd17715bed55264c3b3959616a0695f8ad2d098bf6944fbd0953ee9c695dceef
   languageName: node
   linkType: hard
 
@@ -6729,7 +6728,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sirv-cli@npm:^1.0.10":
+"sirv-cli@npm:^1.0.11":
   version: 1.0.11
   resolution: "sirv-cli@npm:1.0.11"
   dependencies:
@@ -7116,7 +7115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:^1.1.22":
+"svelte-check@npm:^1.1.34":
   version: 1.1.34
   resolution: "svelte-check@npm:1.1.34"
   dependencies:
@@ -7156,7 +7155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.6.1":
+"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.6.7":
   version: 4.6.7
   resolution: "svelte-preprocess@npm:4.6.7"
   dependencies:
@@ -7203,10 +7202,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:^3.31.0":
-  version: 3.32.2
-  resolution: "svelte@npm:3.32.2"
-  checksum: 33c0223409ea24f848ccda9559f01b1594be082637b89858f9872904e4f409e35eea041362d12d7769b670fa1a88672b4cda74f451e525e9b6a3e5d936639ea0
+"svelte@npm:^3.32.3":
+  version: 3.32.3
+  resolution: "svelte@npm:3.32.3"
+  checksum: 89c1f404e89a7b87ce5fcb7c9e87b7865f4f67f003d0e26957bd3a443494f009c270c58c1cc9caa5261a02bc5c78832fbe3643d2831c3445f857e5ec7ed3ca3d
   languageName: node
   linkType: hard
 
@@ -7384,7 +7383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3":
+"tslib@npm:^2.1.0":
   version: 2.1.0
   resolution: "tslib@npm:2.1.0"
   checksum: d8f5bdd067611651c6b846c2388f4dc8ba1f5af124e66105f5263d1ad56da17f4b8c6566887ca2f205c5a9758451871ceca87d5d06087af2dca1699c5e33db69
@@ -7463,7 +7462,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@*, typescript@^4.1.3":
+typescript@*:
   version: 4.1.4
   resolution: "typescript@npm:4.1.4"
   bin:
@@ -7473,13 +7472,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@*#builtin<compat/typescript>, typescript@patch:typescript@^4.1.3#builtin<compat/typescript>":
+typescript@^4.1.5:
+  version: 4.1.5
+  resolution: "typescript@npm:4.1.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 29157c84426ac94ce97aac836264f303a26bd9fb30865650229e3406a36ca2e89735ef4b8878075ba1b95fa4d3ff9810057b64888700c28e20b4034a6db4da83
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@*#builtin<compat/typescript>":
   version: 4.1.4
   resolution: "typescript@patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: d913f9d92f15437627d35ec24bb28740c5f550843a0442977cb61be0973aa760d618b33f4426205ccff920442ed38256b7d4b48731cfb7084ce0977c07e35404
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.1.5#builtin<compat/typescript>":
+  version: 4.1.5
+  resolution: "typescript@patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=cc6730"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 58cc7786be0f8485c124944883b1384287532e4867ec37f1fb5cb2811dbc10f7a9decccad89097f924043285f3515bfd8223c61dbb4f88af00b2d8dc2ef73207
   languageName: node
   linkType: hard
 
