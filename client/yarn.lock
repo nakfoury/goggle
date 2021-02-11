@@ -2517,7 +2517,7 @@ __metadata:
     "@types/jest": ^26.0.20
     babel-jest: ^26.6.3
     jest: ^26.6.3
-    less: ^4.1.1
+    less: ^3.11.3
     nollup: ^0.15.0
     prettier: ^2.2.1
     prettier-plugin-svelte: ^2.1.4
@@ -2866,7 +2866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.0.1, debug@npm:^3.2.6":
+"debug@npm:^3.0.1":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
   dependencies:
@@ -3931,7 +3931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.4":
+"iconv-lite@npm:0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
   dependencies:
@@ -5016,9 +5016,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "less@npm:4.1.1"
+"less@npm:^3.11.3":
+  version: 3.13.1
+  resolution: "less@npm:3.13.1"
   dependencies:
     copy-anything: ^2.0.1
     errno: ^0.1.1
@@ -5026,8 +5026,7 @@ __metadata:
     image-size: ~0.5.0
     make-dir: ^2.1.0
     mime: ^1.4.1
-    needle: ^2.5.2
-    parse-node-version: ^1.0.1
+    native-request: ^1.0.5
     source-map: ~0.6.0
     tslib: ^1.10.0
   dependenciesMeta:
@@ -5041,13 +5040,13 @@ __metadata:
       optional: true
     mime:
       optional: true
-    needle:
+    native-request:
       optional: true
     source-map:
       optional: true
   bin:
-    lessc: bin/lessc
-  checksum: a4fb3be59be0fdcc289c24f09e3b856a63d1bb9fa444209a712ce11b2944dad04007ad04c1d3b2708d2df58dbfaec6d8af7a96da80731c359c8927bfe2a97409
+    lessc: ./bin/lessc
+  checksum: cc1a86d352c561eca57dcd5a96fd9f6f5a43759e8c0588dee9cb2414c6dc60b3cc8522d16ff363ffaba85a0d8cec4372b45e5c18fddd43730f8c78b2fc28d0d2
   languageName: node
   linkType: hard
 
@@ -5398,23 +5397,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"native-request@npm:^1.0.5":
+  version: 1.0.8
+  resolution: "native-request@npm:1.0.8"
+  checksum: bbb5ec150fe3bec61e76f8170641e0519348bb7de5b1c67fc757c5ca61dc7c539a0984d00c3d89e0b8b8e1fe6d6e52aed144eb725bc0a8693d4dc1633e15cb7a
+  languageName: node
+  linkType: hard
+
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
   checksum: 2daf93d9bb516eddb06e2e80657a605af2e494d47c65d090ba43691aaffbc41f520840f1c9d3b7b641977af950217a4ab6ffb85bafcd5dfa8ba6fe4e68c43b53
-  languageName: node
-  linkType: hard
-
-"needle@npm:^2.5.2":
-  version: 2.6.0
-  resolution: "needle@npm:2.6.0"
-  dependencies:
-    debug: ^3.2.6
-    iconv-lite: ^0.4.4
-    sax: ^1.2.4
-  bin:
-    needle: bin/needle
-  checksum: 0a00060d586b984ccfe89ba95228a9510ec258eeba62349450d590ea5a92831cd997b191f211220bd112236fc8734c7e6cd64d674b7e6d55784fa992d9e3a7a4
   languageName: node
   linkType: hard
 
@@ -5771,13 +5764,6 @@ __metadata:
     json-parse-even-better-errors: ^2.3.0
     lines-and-columns: ^1.1.6
   checksum: 65b1e494a51862340248f542666712830c7b6f4d632ca099520eeacb163275f35cbbcf72643cab1d8a71c3cdf87dcd0a7e03c685c7ac1068d24b49c915a7e884
-  languageName: node
-  linkType: hard
-
-"parse-node-version@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "parse-node-version@npm:1.0.1"
-  checksum: 79ae38178715cd9ebec482d876b8bc773c98e017ccdb50d40937e9d65ece0ebf7eef507ed100e182e352b0bacfe2acba6b3b3b7ae978be20a79a91a4853bb27b
   languageName: node
   linkType: hard
 
@@ -6550,13 +6536,6 @@ __metadata:
   bin:
     sane: ./src/cli.js
   checksum: e384e252021b1afef7459e994fe3ea79d114a0e7d23a03e660444abf15a2b4c50ce7eac2810b2c289e857c618d96fb35ee66356ebd4d6cb97cb11b54b2b29600
-  languageName: node
-  linkType: hard
-
-"sax@npm:^1.2.4":
-  version: 1.2.4
-  resolution: "sax@npm:1.2.4"
-  checksum: 9d7668d69105e89e2c1a4b2fdc12c72e1a2f78b825f7b4a8a2ea5cdfebf70920bd17715bed55264c3b3959616a0695f8ad2d098bf6944fbd0953ee9c695dceef
   languageName: node
   linkType: hard
 
