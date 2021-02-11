@@ -9,47 +9,44 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  NODE_VERSION: 15.x
+
 jobs:
-  client:
-    name: Client
+  # Build, lint, and test the code.
+  check:
+    name: Check
+    strategy:
+      matrix:
+        target: [ build, lint, test ]
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: client
     steps:
-      # Checkout the repository to the GitHub Actions runner
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      # Install Node.js as well as the yarn CLI
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: 15.x
+          node-version: ${{ env.NODE_VERSION }}
+      - run: yarn install --immutable
+      - run: yarn run ${{ matrix.target }}
 
-      # Install dependencies
-      - name: Install Dependencies
+  # On push to main, deploy to production
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [ check ]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - working-directory: client
         run: yarn install --immutable
-        working-directory: client
-
-      # Lint code formatting and style
-      - name: Lint
-        run: yarn run lint
-        working-directory: client
-
-      # Run unit tests
-      - name: Test
-        run: yarn run test
-        working-directory: client
-
-      # On push to main, configure AWS credentials
-      - name: Setup AWS Creds
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: Fooji/create-aws-profile-action@v1
+      - uses: Fooji/create-aws-profile-action@v1
         with:
           profile: goggle
           key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      # On push to main, deploy to production
-      - name: Deploy
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: make deploy-client
+      - run: make deploy-client

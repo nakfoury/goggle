@@ -10,57 +10,59 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  GO_VERSION: 1.15
+  GOLANGCI_LINT_VERSION: 1.36
+
 jobs:
-  backend:
-    name: Backend
+  # Check that the backend can even build
+  build:
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout the repository to the GitHub Actions runner
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      # Install the Go CLI
-      - name: Set up Go
-        uses: actions/setup-go@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
         with:
-          go-version: 1.15
+          go-version: ${{ env.GO_VERSION }}
+      - run: make build-backend
 
-      # Check that the code builds
-      - name: Build
-        run: make build-backend
+  # Lint the code for formatting and style issues.
+  # We're using the official action instead of a make target because it has caching.
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: golangci/golangci-lint-action@v2
+        with:
+          version: v${{ env.GOLANGCI_LINT_VERSION }}
+          working-directory: backend
 
-      # Run unit tests
-      - name: Test
-        run: make test-backend
+  # Run unit tests
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GO_VERSION }}
+      - run: make test-backend
 
-      # On push to main, configure AWS credentials
-      - name: Setup AWS Creds
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: Fooji/create-aws-profile-action@v1
+  # On push to main, deploy to production
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [ build, lint, test ]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GO_VERSION }}
+      - uses: Fooji/create-aws-profile-action@v1
         with:
           profile: goggle
           key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      # On push to main, deploy to production
-      - name: Deploy
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: make deploy-backend
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checkout the repository to the GitHub Actions runner
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      # Lint the code for formatting and style issues.
-      # We're using the official action instead of a make target because it has caching.
-      - name: Lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          version: v1.36
-          working-directory: backend
+      - run: make deploy-backend
