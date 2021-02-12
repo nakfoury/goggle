@@ -1,7 +1,11 @@
 // Package restapi declares a REST http server.
 package restapi
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 // Handler creates a new Goggle REST API server.
 //
@@ -16,6 +20,8 @@ func Handler(middleware ...gin.HandlerFunc) *gin.Engine {
 
 	// Register API path handlers.
 	r.GET("/hello", handleHello)
+	r.GET("/create", handleCreateGame)
+	r.GET("/start", handleStartGame)
 
 	return r
 }
@@ -23,4 +29,19 @@ func Handler(middleware ...gin.HandlerFunc) *gin.Engine {
 // handleHello is an example REST API route.
 func handleHello(c *gin.Context) {
 	c.JSON(200, gin.H{"message": "Sorry, no games here."})
+}
+
+func handleCreateGame(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"code": "ABCD",
+	})
+}
+
+func handleStartGame(c *gin.Context) {
+	// Find out what game ID is starting
+
+	// Find out who's in that game and get those ws connections
+
+	// Broadcast some stuff (starting; time; etc.)
+	c.Status(http.StatusAccepted)
 }
