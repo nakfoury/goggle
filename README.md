@@ -8,14 +8,14 @@ https://freewordgame.com
 
 ### Requirements
 
-* [Go](https://golang.org/doc/install)
-* [Node.js](https://nodejs.org/)
-* Yarn
-  * `npm install -g yarn`
-* (Optional) [Terraform v0.14.6](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-  * *Only required if you plan on working on infrastructure.*
-* (Optional) [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-  * *Only required if you plan on deploying the backend or client to production.*
+- [Go](https://golang.org/doc/install)
+- [Node.js](https://nodejs.org/)
+- Yarn
+  - `npm install -g yarn`
+- (Optional) [Terraform v0.14.6](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+  - _Only required if you plan on working on infrastructure._
+- (Optional) [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+  - _Only required if you plan on deploying the backend or client to production._
 
 ### Quick Start
 

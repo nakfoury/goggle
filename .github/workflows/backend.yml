@@ -6,9 +6,9 @@ name: Backend
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   GO_VERSION: 1.15
@@ -54,7 +54,7 @@ jobs:
     name: Deploy Backend
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: [ build, lint, test ]
+    needs: [build, lint, test]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2

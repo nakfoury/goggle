@@ -5,9 +5,9 @@ name: Client
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   NODE_VERSION: 15.x
@@ -18,7 +18,7 @@ jobs:
     name: Client
     strategy:
       matrix:
-        target: [ build, lint, test ]
+        target: [build, lint, test]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,7 +36,7 @@ jobs:
     name: Deploy Client
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: [ check ]
+    needs: [check]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.4

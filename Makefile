@@ -105,7 +105,7 @@ fmt: fmt-backend fmt-client fmt-terraform
 
 .PHONY: fmt-backend
 fmt-backend:
-	go run github.com/golangci/golangci-lint/cmd/golangci-lint run --config ./backend/.golangci.yml --fix ./backend/...
+	go run github.com/golangci/golangci-lint/cmd/golangci-lint run --fast --config ./backend/.golangci.yml --fix ./backend/...
 
 .PHONY: fmt-client
 fmt-client: yarn-install
@@ -133,7 +133,7 @@ pre-commit: lint test
 
 .PHONY: lint
 lint: yarn-install
-	go run github.com/golangci/golangci-lint/cmd/golangci-lint run --config ./backend/.golangci.yml ./backend/...
+	go run github.com/golangci/golangci-lint/cmd/golangci-lint run --fast --config ./backend/.golangci.yml ./backend/...
 	cd client && yarn run lint
 ifneq (, $(shell which terraform))
 	cd terraform && terraform fmt -recursive -check

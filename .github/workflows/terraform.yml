@@ -6,9 +6,9 @@ name: Terraform
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   TERRAFORM_VERSION: 0.14.6
@@ -33,7 +33,7 @@ jobs:
   plan:
     name: Plan Infrastructure
     runs-on: ubuntu-latest
-    needs: [ lint ]
+    needs: [lint]
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
@@ -52,7 +52,7 @@ jobs:
     name: Apply Infrastructure
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: [ lint, plan ]
+    needs: [lint, plan]
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
