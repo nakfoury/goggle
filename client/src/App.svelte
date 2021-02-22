@@ -1,26 +1,21 @@
-<script>
+<script lang="ts">
+  import { Api } from './Api'
+  import type { HttpResponse, CreateGameOutput } from './Api'
+
+  let resp: Promise<HttpResponse<CreateGameOutput>>
+
   function handleClick() {
-    promise = createGame()
-  }
-
-  let promise
-
-  async function createGame() {
-    const res = await fetch(`http://localhost:8081/create`)
-    const { code } = await res.json()
-    return code
+    resp = Api.createGame()
   }
 </script>
 
-<p>Free games take time.</p>
+<button on:click={handleClick}>Create Game</button>
 
-<button on:click={handleClick}>hello flame</button>
-
-{#await promise}
+{#await resp}
   <p>a hot slice of p</p>
-{:then code}
-  {#if code}
-    <p>the code is {code}</p>
+{:then resp}
+  {#if resp}
+    <p>the code is {resp.data.gameId}</p>
   {/if}
 {:catch error}
   <p style="color: green">{error.message}</p>

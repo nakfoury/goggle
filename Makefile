@@ -95,6 +95,17 @@ deploy-infra-impatiently:
 	cd terraform && terraform apply -auto-approve
 
 
+# ==============
+#    GENERATE
+# ==============
+
+# Regenerate client/src/Api.ts based on the latest backend code.
+# (Auto-generates an API client with request/response types.)
+.PHONY: gen-tsclient
+gen-tsclient:
+	sh ./scripts/gen_tsclient.sh
+
+
 # ====================
 #    FIX FORMATTING
 # ====================

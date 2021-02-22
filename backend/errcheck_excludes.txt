@@ -1,2 +1,3 @@
 (*github.com/gin-gonic/gin.Context).Error
 (*github.com/gin-gonic/gin.Context).AbortWithError
+(*github.com/gin-gonic/gin.Context).BindJSON

@@ -79,6 +79,9 @@ lives in `./backend/wsapi`.
 
 The primary backend library to know is [Gin](https://github.com/gin-gonic/gin).
 
+After making changes to the REST API code, run `make gen-tsclient` to regenerate the Typescript
+client and models.
+
 #### Client
 
 The client is written in [Svelte](https://svelte.dev/), which is a component-based Javascript
@@ -89,6 +92,13 @@ The `./client` project directory is a typical [Node.js](https://nodejs.org/) pro
 
 We use the [Typescript](https://www.typescriptlang.org/) language for code and
 [Less](http://lesscss.org/) for styles.
+
+### References
+
+#### [go-swagger](https://goswagger.io/use/spec.html)
+
+The `./backend/wsapi` code is annotated using go-swagger annotations to aid Typescript client code
+generation.
 
 ### Deployment
 
