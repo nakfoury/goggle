@@ -2,11 +2,12 @@ import svelte from 'rollup-plugin-svelte-hot'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
-import sveltePreprocess from 'svelte-preprocess'
 import typescript from '@rollup/plugin-typescript'
 import hmr from 'rollup-plugin-hot'
 import del from 'rollup-plugin-delete'
 import replace from '@rollup/plugin-replace'
+
+const { preprocess } = require('./svelte.config')
 
 const production = !process.env.ROLLUP_WATCH
 const prodAPI = production || !!process.env.PROD_API
@@ -21,7 +22,7 @@ export default {
   },
   plugins: [
     svelte({
-      preprocess: sveltePreprocess(),
+      preprocess,
       // enable run-time checks when not in production
       dev: !production,
       // we'll extract any component CSS out into
