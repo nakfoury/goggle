@@ -1,27 +1,27 @@
 <script lang="ts">
-  import { Api } from './Api'
-  import type { HttpResponse, CreateGameOutput } from './Api'
-  import { Button, MaterialApp } from 'svelte-materialify'
+  import { Button, MaterialApp, AppBar, Icon } from 'svelte-materialify'
+  import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js'
+  import NameForm from './NameForm.svelte'
 
-  let resp: Promise<HttpResponse<CreateGameOutput>>
+  let darkMode = !!localStorage.getItem('darkMode')
 
-  function handleClick() {
-    resp = Api.createGame()
+  function toggleDarkMode() {
+    darkMode = !darkMode
+    if (darkMode) {
+      localStorage.setItem('darkMode', 'true')
+    } else {
+      localStorage.removeItem('darkMode')
+    }
   }
 </script>
 
-<MaterialApp theme="light">
-  <div class="ma-3">
-    <Button on:click={handleClick}>Create Game</Button>
-
-    {#await resp}
-      <p>a hot slice of p</p>
-    {:then resp}
-      {#if resp}
-        <p>the code is {resp.data.gameId}</p>
-      {/if}
-    {:catch error}
-      <p style="color: green">{error.message}</p>
-    {/await}
-  </div>
+<MaterialApp theme={darkMode ? 'dark' : 'light'}>
+  <AppBar>
+    <span slot="title">Goggle</span>
+    <div class="flex-grow-1" />
+    <Button fab text on:click={toggleDarkMode}>
+      <Icon path={darkMode ? mdiWeatherSunny : mdiWeatherNight} />
+    </Button>
+  </AppBar>
+  <NameForm />
 </MaterialApp>

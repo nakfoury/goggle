@@ -7,7 +7,7 @@ import hmr from 'rollup-plugin-hot'
 import del from 'rollup-plugin-delete'
 import replace from '@rollup/plugin-replace'
 
-const { preprocess } = require('./svelte.config')
+const { createPreprocessors } = require('./svelte.config')
 
 const production = !process.env.ROLLUP_WATCH
 const prodAPI = production || !!process.env.PROD_API
@@ -22,7 +22,7 @@ export default {
   },
   plugins: [
     svelte({
-      preprocess,
+      preprocess: createPreprocessors(),
       // enable run-time checks when not in production
       dev: !production,
       // we'll extract any component CSS out into

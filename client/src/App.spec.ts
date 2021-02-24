@@ -5,6 +5,6 @@ import '@testing-library/jest-dom/extend-expect'
 describe('App', () => {
   it('should render', () => {
     const app = render(App)
-    expect(app.getByText('Create Game')).toBeInTheDocument()
+    expect(app.getByText('Goggle')).toBeInTheDocument()
   })
 })
