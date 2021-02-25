@@ -53,7 +53,7 @@
 <Row class="mt-8">
   <Col>
     <Button
-      class="secondary-color"
+      class={disabled ? undefined : 'secondary-color'}
       block
       tile
       {disabled}
@@ -67,7 +67,7 @@
 <Row>
   <Col>
     <Button
-      class="primary-color"
+      class={disabled ? undefined : 'primary-color'}
       block
       tile
       {disabled}

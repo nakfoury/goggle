@@ -8,15 +8,20 @@
   const counter = 4
 
   const rules: ((value: string) => true | string)[] = [
-    (value) => value.length === counter || `Code must be ${counter} characters`,
+    (value) => value.length === counter || `Code must be ${counter} letters`,
+    (value) => /^[A-Za-z]+$/.test(value) || `Code has illegal characters`,
   ]
 
   const dispatch = createEventDispatcher()
+
+  let error = false
+
+  $: disabled = error || !value.length
 </script>
 
 <Row>
   <Col>
-    <TextField bind:value {counter} {rules} validateOnBlur>Room Code</TextField>
+    <TextField bind:value bind:error {counter} {rules}>Room Code</TextField>
   </Col>
 </Row>
 <Row class="mt-8">
@@ -37,10 +42,10 @@
   <Col>
     <Button
       type="submit"
-      class="primary-color"
+      class={disabled ? undefined : 'primary-color'}
       block
       tile
-      disabled={value.length != 4}
+      {disabled}
     >
       <Icon path={mdiAccountSwitch} />
       <div class="flex-grow-1">Join Game</div>
