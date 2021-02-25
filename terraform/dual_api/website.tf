@@ -60,6 +60,7 @@ resource "aws_cloudfront_distribution" "website" {
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = "S3Origin"
     viewer_protocol_policy = "redirect-to-https"
+    compress               = true
 
     forwarded_values {
       query_string = false
