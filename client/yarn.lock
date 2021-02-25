@@ -2657,11 +2657,11 @@ __metadata:
     babel-jest: ^26.6.3
     jest: ^26.6.3
     node-sass: ^5.0.0
-    nollup: ^0.15.0
+    nollup: ^0.15.2
     postcss: ^8.2.6
     prettier: ^2.2.1
-    prettier-plugin-svelte: ^2.1.4
-    rollup: ^2.38.5
+    prettier-plugin-svelte: ^2.1.6
+    rollup: ^2.39.1
     rollup-plugin-css-only: ^3.1.0
     rollup-plugin-delete: ^2.0.0
     rollup-plugin-hot: ^0.1.1
@@ -2671,11 +2671,11 @@ __metadata:
     sass: ^1.32.8
     sirv-cli: ^1.0.11
     svelte: ^3.32.3
-    svelte-check: ^1.1.34
+    svelte-check: ^1.1.36
     svelte-jester: ^1.3.0
     svelte-materialify: ^0.3.5
     svelte-preprocess: ^4.6.9
-    swagger-typescript-api: ^5.1.6
+    swagger-typescript-api: ^5.1.7
     ts-jest: ^26.5.2
     tslib: ^2.1.0
     typescript: ^4.1.5
@@ -5875,7 +5875,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nollup@npm:>=0.8.4, nollup@npm:^0.15.0":
+"nollup@npm:>=0.8.4":
   version: 0.15.0
   resolution: "nollup@npm:0.15.0"
   dependencies:
@@ -5894,6 +5894,28 @@ __metadata:
   bin:
     nollup: lib/cli.js
   checksum: c1e32d750fb2234ef0025534eeaba2876856d824fe5957dfd5671ec00ad85914c961e87330940bc6687f982cca5992287dbac18f2759eabb187c1edf16579888
+  languageName: node
+  linkType: hard
+
+"nollup@npm:^0.15.2":
+  version: 0.15.2
+  resolution: "nollup@npm:0.15.2"
+  dependencies:
+    "@rollup/pluginutils": ^3.0.8
+    acorn: ^8.0.4
+    chokidar: ^3.0.0
+    convert-source-map: ^1.5.1
+    express: ^4.16.3
+    express-history-api-fallback: ^2.2.1
+    express-http-proxy: ^1.5.1
+    express-ws: ^4.0.0
+    magic-string: ^0.25.7
+    mime-types: ^2.1.24
+    source-map: ^0.5.6
+    source-map-fast: "npm:source-map@0.7.3"
+  bin:
+    nollup: lib/cli.js
+  checksum: 0f11a6d711e46023395fbadbf82a1394df54dcfa8e6925c49636a777b46cea01164975cdf4d50a78ec69bbedd0aa2bebe1a63d536b2d50eecd68d58512b4e5bd
   languageName: node
   linkType: hard
 
@@ -6415,13 +6437,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "prettier-plugin-svelte@npm:2.1.4"
+"prettier-plugin-svelte@npm:^2.1.6":
+  version: 2.1.6
+  resolution: "prettier-plugin-svelte@npm:2.1.6"
   peerDependencies:
     prettier: ^1.16.4 || ^2.0.0
     svelte: ^3.2.0
-  checksum: b28fa4d9fd27773904e814f618186fb90f6566ad8252d96173c801ccab8462cd1045df1a7007b6f88d8db56ba94cdc05f1ce69f830c0dbefb9f201b3a69806f3
+  checksum: b5ff9dc8c26a85f0f09ac25478af37a5afc9ef6405ddb475616456d8d6fdf193bf629f91e94ac7041e804f61855c7e1beb6a649b998572bc07098a2104c0a819
   languageName: node
   linkType: hard
 
@@ -7036,9 +7058,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.38.5":
-  version: 2.38.5
-  resolution: "rollup@npm:2.38.5"
+"rollup@npm:^2.39.1":
+  version: 2.39.1
+  resolution: "rollup@npm:2.39.1"
   dependencies:
     fsevents: ~2.3.1
   dependenciesMeta:
@@ -7046,7 +7068,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: b8ccad97a04f95f2459101c9b477e27f857fba5995d936728838da3728c2295aa396198b42fd254888057974589ba70a06e00feff7c1a1db992f0280914d695b
+  checksum: c2d33255949d1cb86f8119f2457e81cdd7f7e6406532080cba63390183140759b5705e7a0602fca1415e1df7a575df1947c94dde2c334b87fd0e004757d4dda2
   languageName: node
   linkType: hard
 
@@ -7835,9 +7857,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:^1.1.34":
-  version: 1.1.34
-  resolution: "svelte-check@npm:1.1.34"
+"svelte-check@npm:^1.1.36":
+  version: 1.1.36
+  resolution: "svelte-check@npm:1.1.36"
   dependencies:
     chalk: ^4.0.0
     chokidar: ^3.4.1
@@ -7851,7 +7873,7 @@ __metadata:
     svelte: ^3.24.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: 72bd3e41f7e0aa02316bf4c8b0448545171c2611e3a1af9642b84390dac3f5f179d74eed4e3cafa3570a6bd322a3d3e4e25b0a53c7f53ae65f680afb23cfcbb5
+  checksum: f0aafb64acaee79c0ffea88ee227d66df2d0fd77639c4a1ffa7e4861dd7cc5354e4e7d2a102f8d385c84c3e42ea42fed22a6c95c4978ae1f7a716505d347398f
   languageName: node
   linkType: hard
 
@@ -7992,9 +8014,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-typescript-api@npm:^5.1.6":
-  version: 5.1.6
-  resolution: "swagger-typescript-api@npm:5.1.6"
+"swagger-typescript-api@npm:^5.1.7":
+  version: 5.1.7
+  resolution: "swagger-typescript-api@npm:5.1.7"
   dependencies:
     "@types/swagger-schema-official": 2.0.21
     axios: ^0.21.1
@@ -8011,7 +8033,7 @@ __metadata:
   bin:
     sta: index.js
     swagger-typescript-api: index.js
-  checksum: 8ca88cc277b53041d284c9ec2f8474cd442f7f26c1c69838e2900971b4e2cf7989990a1e0d2fc29485772bd53409182d415ab7bc5ad6de5b0ed17c2fe7f96050
+  checksum: 942372061571227749b12d4b379010d0ec84019b92e2e9121c09ecd6b921f3377656dd45898971e574c30e888f104470800efe99232a5edd8793b2c2f5f94a6d
   languageName: node
   linkType: hard
 
