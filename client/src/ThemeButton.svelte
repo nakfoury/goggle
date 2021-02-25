@@ -8,6 +8,6 @@
   }
 </script>
 
-<Button fab text on:click={toggleDarkMode}>
+<Button fab text aria-label="Toggle dark mode" on:click={toggleDarkMode}>
   <Icon path={$darkMode ? mdiWeatherSunny : mdiWeatherNight} />
 </Button>
