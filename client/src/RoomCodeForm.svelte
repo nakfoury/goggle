@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button, TextField, Row, Col, Icon } from 'svelte-materialify'
+  import { Button, TextField, Row, Col, Icon } from 'svelte-materialify/src'
   import { createEventDispatcher } from 'svelte'
   import { mdiAccountSwitch, mdiCancel } from '@mdi/js'
 

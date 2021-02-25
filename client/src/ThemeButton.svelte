@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button, Icon } from 'svelte-materialify'
+  import { Button, Icon } from 'svelte-materialify/src'
   import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js'
   import { darkMode } from './globalStore'
 

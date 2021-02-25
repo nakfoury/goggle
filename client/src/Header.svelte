@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { AppBar, Tooltip, Icon } from 'svelte-materialify'
+  import { AppBar, Tooltip, Icon } from 'svelte-materialify/src'
   import { mdiChevronDoubleUp } from '@mdi/js'
   import ThemeButton from './ThemeButton.svelte'
   import { name, triedDarkMode } from './globalStore'

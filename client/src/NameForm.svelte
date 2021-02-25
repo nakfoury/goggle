@@ -8,7 +8,7 @@
     Col,
     Snackbar,
     Icon,
-  } from 'svelte-materialify'
+  } from 'svelte-materialify/src'
   import { mdiAccountSwitch, mdiPlus } from '@mdi/js'
   import { createEventDispatcher } from 'svelte'
   import { name } from './globalStore'
