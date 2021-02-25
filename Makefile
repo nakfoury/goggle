@@ -55,15 +55,8 @@ build-client: yarn-install
 # ==========
 
 .PHONY: test
-test: test-backend test-client
-
-.PHONY: test-backend
-test-backend:
+test:
 	go test -v ./backend/...
-
-.PHONY: test-client
-test-client: yarn-install
-	cd client && yarn run test
 
 
 # ============

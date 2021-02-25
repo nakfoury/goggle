@@ -18,7 +18,7 @@ jobs:
     name: Client
     strategy:
       matrix:
-        target: [build, lint, test]
+        target: [build, lint]
     runs-on: ubuntu-latest
     defaults:
       run:

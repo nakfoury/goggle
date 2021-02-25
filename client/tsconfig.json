@@ -6,7 +6,6 @@
 
   "compilerOptions": {
     "strictNullChecks": true,
-    "module": "ES2020",
-    "types": ["svelte", "node", "jest", "@testing-library/jest-dom"]
+    "module": "ES2020"
   }
 }

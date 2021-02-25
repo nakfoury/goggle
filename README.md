@@ -100,6 +100,10 @@ We use the [Typescript](https://www.typescriptlang.org/) language for code and
 The `./backend/wsapi` code is annotated using go-swagger annotations to aid Typescript client code
 generation.
 
+#### [materialify](https://svelte-materialify.vercel.app/getting-started/usage/)
+
+Documentation for the Svelte Materialify CSS framework, which is based on Material Design.
+
 ### Deployment
 
 Deployment to production happens automatically inside GitHub Actions on pushes to the `main` branch.

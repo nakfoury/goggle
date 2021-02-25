@@ -9,3 +9,6 @@ bin
 
 # Resources
 dictionary.txt
+
+# VSCode
+__debug_bin
