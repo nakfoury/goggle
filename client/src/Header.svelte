@@ -1,34 +1,18 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition'
-  import { cubicInOut } from 'svelte/easing'
-  import { AppBar, Icon, Snackbar, Button } from 'svelte-materialify/src'
-  import { mdiChevronDoubleUp, mdiWeatherNight, mdiWeatherSunny } from '@mdi/js'
+  import { AppBar, Icon, Button } from 'svelte-materialify/src'
+  import { mdiWeatherNight, mdiWeatherSunny } from '@mdi/js'
   import { name, darkMode } from './globalStore'
+  import TryDarkModePopup from './TryDarkModePopup.svelte'
 
   // Bind the current height of the header.
   let clientHeight = 0
-
-  // Customize the popup fade-out animation to be slower and smoother.
-  const popupFadeOut = (node: Element) =>
-    fade(node, {
-      duration: 1000,
-      easing: cubicInOut,
-    })
-
-  // Double-bind the popup state, with initial state based on memory.
-  let active = localStorage.getItem('hideDarkModePopup') !== 'true'
-
-  $: if (!active || $darkMode) {
-    // Hide popup on next visit.
-    localStorage.setItem('hideDarkModePopup', 'true')
-    // Force the popup to close early if the theme button was clicked.
-    active = false
-  }
 
   function toggleDarkMode() {
     darkMode.update((value) => !value)
   }
 </script>
+
+<!-- Header -->
 
 <div bind:clientHeight>
   <AppBar>
@@ -50,17 +34,6 @@
   </AppBar>
 </div>
 
-<!-- Dark mode reminder popup -->
-<Snackbar
-  bind:active
-  class="primary-color"
-  top
-  right
-  offsetY="{clientHeight + 8}px"
-  style="min-width: 0"
-  timeout={4000}
-  transition={popupFadeOut}
->
-  <span class="mr-2">Try dark mode!</span>
-  <Icon style="color: inherit" path={mdiChevronDoubleUp} />
-</Snackbar>
+<!-- One-time dark mode reminder popup -->
+
+<TryDarkModePopup offsetY={clientHeight} />
