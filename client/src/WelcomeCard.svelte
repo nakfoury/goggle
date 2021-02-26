@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Card, Container, Row, Col } from 'svelte-materialify/src'
   import { fly } from 'svelte/transition'
+  import { Card, Container, Row, Col } from 'svelte-materialify/src'
   import NameForm from './NameForm.svelte'
   import RoomCodeForm from './RoomCodeForm.svelte'
 

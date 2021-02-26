@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store'
-import type { Readable } from 'svelte/store'
 
 // Create a store for saving the last-entered user name in local storage
 // for subsequent visits.
@@ -10,19 +9,6 @@ name.subscribe((value) => {
   localStorage.setItem('name', value)
 })
 
-// Create a store for saving whether the user has tried dark mode,
-// so we can hide a tooltip on subsequent visits.
-
-export const triedDarkMode = writable(
-  localStorage.getItem('triedDarkMode') === 'true'
-)
-
-triedDarkMode.subscribe((value) => {
-  if (value) {
-    localStorage.setItem('triedDarkMode', 'true')
-  }
-})
-
 // Create a store for saving the user's dark mode setting,
 // for setting the theme on subsequent visits.
 
@@ -30,7 +16,6 @@ export const darkMode = writable(localStorage.getItem('darkMode') === 'true')
 
 darkMode.subscribe((value) => {
   if (value) {
-    triedDarkMode.set(true)
     localStorage.setItem('darkMode', 'true')
   } else {
     localStorage.setItem('darkMode', 'false')

@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { Api } from './Api'
-  import type { HttpResponse, CreateGameOutput } from './Api'
+  import { createEventDispatcher } from 'svelte'
   import {
     Button,
     TextField,
@@ -10,9 +9,11 @@
     Icon,
   } from 'svelte-materialify/src'
   import { mdiAccountSwitch, mdiPlus } from '@mdi/js'
-  import { createEventDispatcher } from 'svelte'
+  import { Api } from './Api'
+  import type { HttpResponse, CreateGameOutput } from './Api'
   import { name } from './globalStore'
 
+  // Bind the name field value, and initialize based on memory.
   let value = $name
 
   let resp: Promise<HttpResponse<CreateGameOutput>>
@@ -31,6 +32,7 @@
 
   const counter = 20
 
+  // Input validation rules.
   const rules: ((value: string) => string | true)[] = [
     (value) => !!value?.length || 'Name required',
     (value) =>
@@ -40,16 +42,23 @@
       /^[A-Za-z0-9 _-]*$/.test(value) || 'Name contains illegal characters',
   ]
 
+  // Bind whether the input is valid.
   let error = false
 
+  // Control whether to disable the buttons.
   $: disabled = error || !value.length
 </script>
+
+<!-- Name input -->
 
 <Row>
   <Col>
     <TextField bind:value bind:error {counter} {rules}>Name</TextField>
   </Col>
 </Row>
+
+<!-- Create game button -->
+
 <Row class="mt-8">
   <Col>
     <Button
@@ -64,6 +73,9 @@
     </Button>
   </Col>
 </Row>
+
+<!-- Join game button -->
+
 <Row>
   <Col>
     <Button
@@ -78,6 +90,8 @@
     </Button>
   </Col>
 </Row>
+
+<!-- Temporary room code display -->
 
 {#await resp then resp}
   {#if resp}
