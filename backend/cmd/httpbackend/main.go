@@ -22,7 +22,6 @@ func main() {
 
 	// Wait for one of the listeners to stop or encounter an error.
 	err := group.Wait()
-
 	if err != nil {
 		log.Fatal(err)
 	}

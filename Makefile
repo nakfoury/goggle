@@ -20,18 +20,6 @@ run-client: yarn-install
 	cd client && yarn run dev
 
 
-# ============
-#    PLEASE
-# ============
-
-# Please run this target once to install a git hook which will automatically validate code
-# formatting and run unit tests before committing.
-.PHONY: install-hook
-install-hook:
-	echo "#!/usr/bin/env sh\nmake pre-commit" > .git/hooks/pre-commit
-	chmod +x .git/hooks/pre-commit
-
-
 # ===========
 #    BUILD
 # ===========
@@ -139,8 +127,9 @@ endif
 yarn-install:
 	cd client && yarn install
 
+# Leaving this as a no-op for now.
 .PHONY: pre-commit
-pre-commit: lint test
+pre-commit:
 
 .PHONY: lint
 lint: yarn-install

@@ -1,0 +1,38 @@
+{
+  "editor.tabSize": 2,
+
+  "npm.packageManager": "yarn",
+  "prettier.packageManager": "yarn",
+
+  // By default, files can be formatted using prettier.
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  "[svelte]": {
+    // Required config for the prettier plugin to work with svelte files.
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.formatOnSave": true
+  },
+
+  "[go]": {
+    // Overrides the default default of prettier.
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true
+  },
+
+  "gopls": {
+    // Go code formatting config.
+    "formatting.gofumpt": true,
+    "formatting.local": "github.com/nakfoury/goggle"
+  },
+
+  // Go lint config.
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--fast"],
+
+  "[terraform]": {
+    // Overrides the default default of prettier.
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  }
+}

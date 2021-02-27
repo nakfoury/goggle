@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "client: test",
+      "detail": "run client jest tests",
+      "type": "npm",
+      "script": "test",
+      "path": "client/",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "backend: test",
+      "detail": "run backend golang tests",
+      "type": "process",
+      "command": "go",
+      "args": ["test", "-v", "./backend/..."],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "client: gen-tsclient",
+      "detail": "regenerate Api.ts client code from backend code annotations",
+      "type": "shell",
+      "command": "./scripts/gen_tsclient.sh",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "backend: deploy",
+      "detail": "build backend servers and publish to AWS lambda",
+      "type": "shell",
+      "command": "./scripts/deploy_backend.sh",
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "client: deploy",
+      "detail": "build website production bundle and upload files to S3",
+      "type": "shell",
+      "command": "./scripts/deploy_client.sh",
+      "group": "none",
+      "problemMatcher": []
+    }
+  ]
+}

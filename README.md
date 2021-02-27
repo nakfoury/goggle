@@ -46,21 +46,6 @@ Everything should be running. You can work on the client code and it will hot-re
 at http://localhost:5000. The backend code doesn't hot-reload, so you'll need to re-run
 `make run-backend` after making changes.
 
-### Please
-
-Run `make install-hook` once to install a git hook which will automatically validate code formatting
-and run unit tests before committing.
-
-```shell
-$ make install-hook
-```
-
-Most formatting issues can be fixed automatically with `make fmt`.
-
-```shell
-$ make fmt
-```
-
 ### About the Stack
 
 #### Backend
