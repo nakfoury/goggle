@@ -56,3 +56,16 @@ module "dual_api" {
     aws.acm = aws.acm
   }
 }
+
+resource "aws_dynamodb_table" "this" {
+  name           = "goggle"
+  billing_mode   = "PROVISIONED"
+  read_capacity  = 1
+  write_capacity = 1
+  hash_key       = "RoomCode"
+
+  attribute {
+    name = "RoomCode"
+    type = "S"
+  }
+}
