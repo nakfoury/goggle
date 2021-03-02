@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "rollup -c",
-    "dev": "nollup -c --hot --port 5000 --content-base public",
+    "dev": "nollup -c --hot --port 5000 --host 0.0.0.0 --content-base public",
     "lint": "svelte-check && prettier --check \"**/*.{ts,js,svelte,json,yml,css,html}\"",
     "fmt": "prettier --write \"**/*.{ts,js,svelte,json,yml,css,html}\"",
     "test": "jest"
