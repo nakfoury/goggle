@@ -4,7 +4,7 @@
   export let size = 4
 </script>
 
-<Table dense class="board">
+<!-- <table class="s-table">
   {#each { length: size } as x}
     <tr>
       {#each { length: size } as y}
@@ -12,11 +12,23 @@
       {/each}
     </tr>
   {/each}
-</Table>
+</table> -->
+
+<div class="s-table__wrapper">
+  <table class="s-table">
+    {#each { length: size } as x}
+      <tr>
+        {#each { length: size } as y}
+          <td>A</td>
+        {/each}
+      </tr>
+    {/each}
+  </table>
+</div>
 
 <style lang="scss">
-  .board {
-    font-size: 100pt;
+  table {
+    font-size: 64pt;
     background: blue;
   }
 </style>
