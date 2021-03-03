@@ -13,7 +13,7 @@
       {#each resp.data.board as x}
         <tr>
           {#each x as y}
-            <td>{y}</td>
+            <td>{y.toUpperCase()}</td>
           {/each}
         </tr>
       {/each}
