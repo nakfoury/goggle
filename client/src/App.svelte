@@ -8,6 +8,6 @@
 
 <MaterialApp theme={$darkMode ? 'dark' : 'light'}>
   <Header />
-  <WelcomeCard />
+  <!-- <WelcomeCard /> -->
   <Board />
 </MaterialApp>

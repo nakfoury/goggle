@@ -17,6 +17,10 @@ export interface StartGameInput {
   gameId: string;
 }
 
+export interface StartGameOutput {
+  board: string[][];
+}
+
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
 
@@ -238,11 +242,12 @@ export class Api {
    * @request POST:/startGame
    */
   static startGame = (Body: StartGameInput, params: RequestParams = {}) =>
-    Api.client.request<void, any>({
+    Api.client.request<StartGameOutput, any>({
       path: `/startGame`,
       method: "POST",
       body: Body,
       type: ContentType.Json,
+      format: "json",
       ...params,
     });
 }

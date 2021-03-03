@@ -1,30 +1,25 @@
 <script lang="typescript">
+  import { mdiViewDashboardVariant } from '@mdi/js'
+  import { Api, StartGameInput, StartGameOutput } from './Api'
+  import type { HttpResponse } from './Api'
   import { Table } from 'svelte-materialify/src'
 
-  export let size = 4
+  const resp = Api.startGame({ gameId: 'ABCD' })
 </script>
 
-<!-- <table class="s-table">
-  {#each { length: size } as x}
-    <tr>
-      {#each { length: size } as y}
-        <td>A</td>
+{#await resp then resp}
+  <div class="s-table__wrapper">
+    <table class="s-table">
+      {#each resp.data.board as x}
+        <tr>
+          {#each x as y}
+            <td>{y}</td>
+          {/each}
+        </tr>
       {/each}
-    </tr>
-  {/each}
-</table> -->
-
-<div class="s-table__wrapper">
-  <table class="s-table">
-    {#each { length: size } as x}
-      <tr>
-        {#each { length: size } as y}
-          <td>A</td>
-        {/each}
-      </tr>
-    {/each}
-  </table>
-</div>
+    </table>
+  </div>
+{/await}
 
 <style lang="scss">
   table {
