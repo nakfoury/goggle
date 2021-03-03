@@ -29,7 +29,10 @@ func main() {
 
 func serveRESTAPI() error {
 	// Disable CORS errors when running locally, since the web client will be on a different port.
-	middleware := cors.New(cors.Config{AllowAllOrigins: true})
+	middleware := cors.New(cors.Config{
+		AllowAllOrigins: true,
+		AllowHeaders:    []string{"content-type"},
+	})
 
 	restServer := restapi.Handler(middleware)
 	addr := ":8081"
