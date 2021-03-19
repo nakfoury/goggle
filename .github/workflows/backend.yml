@@ -66,3 +66,5 @@ jobs:
           key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - run: make deploy-backend
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
