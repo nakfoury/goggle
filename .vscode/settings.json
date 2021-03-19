@@ -2,7 +2,6 @@
   "editor.tabSize": 2,
 
   "npm.packageManager": "yarn",
-  "prettier.packageManager": "yarn",
 
   // By default, files can be formatted using prettier.
   "editor.defaultFormatter": "esbenp.prettier-vscode",

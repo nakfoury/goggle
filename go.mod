@@ -1,6 +1,6 @@
 module github.com/nakfoury/goggle
 
-go 1.15
+go 1.16
 
 require (
 	github.com/armsnyder/awswebsocketadapter v0.0.3

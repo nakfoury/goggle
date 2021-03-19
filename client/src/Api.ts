@@ -13,8 +13,12 @@ export interface CreateGameOutput {
   gameId: string;
 }
 
-export interface StartGameInput {
-  gameId: string;
+export interface GuessWordInput {
+  word: string;
+}
+
+export interface GuessWordOutput {
+  correct: boolean;
 }
 
 export interface StartGameOutput {
@@ -238,15 +242,29 @@ export class Api {
   /**
    * No description
    *
-   * @name StartGame
-   * @request POST:/startGame
+   * @name GuessWord
+   * @request POST:/guessWord
    */
-  static startGame = (Body: StartGameInput, params: RequestParams = {}) =>
-    Api.client.request<StartGameOutput, any>({
-      path: `/startGame`,
+  static guessWord = (Body: GuessWordInput, params: RequestParams = {}) =>
+    Api.client.request<GuessWordOutput, any>({
+      path: `/guessWord`,
       method: "POST",
       body: Body,
       type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @name StartGame
+   * @request POST:/startGame
+   */
+  static startGame = (params: RequestParams = {}) =>
+    Api.client.request<StartGameOutput, any>({
+      path: `/startGame`,
+      method: "POST",
       format: "json",
       ...params,
     });
