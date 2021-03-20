@@ -8,6 +8,8 @@ import 'isomorphic-fetch'
 // so we mock it.
 window.scrollTo = jest.fn()
 
+global.fetch = jest.fn(() => Promise.resolve(new Response()))
+
 describe('App', () => {
   it('should render', () => {
     const app = render(App)
