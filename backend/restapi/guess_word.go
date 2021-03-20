@@ -24,12 +24,10 @@ func init() {
 // swagger:route post /guessWord guessWord
 //	Responses:
 //		200: body:guessWordOutput
-var _ = register(func(r gin.IRoutes) {
-	r.Any("/guessWord", func(c *gin.Context) {
-		var input guessWordInput
-		c.Bind(&input)
-		c.JSON(200, guessWordOutput{Correct: dictionary[strings.ToUpper(input.Word)]})
-	})
+var _ = register("/guessWord", func(c *gin.Context) {
+	var input guessWordInput
+	c.Bind(&input)
+	c.JSON(200, guessWordOutput{Correct: dictionary[strings.ToUpper(input.Word)]})
 })
 
 type guessWordInput struct {

@@ -9,35 +9,33 @@ import (
 // swagger:route post /startGame startGame
 //	Responses:
 //		200: body:startGameOutput
-var _ = register(func(r gin.IRoutes) {
-	r.Any("/startGame", func(c *gin.Context) {
-		var input startGameInput
-		c.Bind(&input)
+var _ = register("/startGame", func(c *gin.Context) {
+	var input startGameInput
+	c.Bind(&input)
 
-		// Find out what game ID is starting
+	// Find out what game ID is starting
 
-		// Load the game settings (like board size, for example)
-		boardSize := 4
+	// Load the game settings (like board size, for example)
+	boardSize := 4
 
-		// Find out who's in that game and get those ws connections
+	// Find out who's in that game and get those ws connections
 
-		// Broadcast some stuff (starting; time; board itself; etc.)
+	// Broadcast some stuff (starting; time; board itself; etc.)
 
-		bag := []byte("eeeeeeeeeeeeeeeeeeetttttttttttttaaaaaaaaaaaarrrrrrrrrrrriiiiiiiiiiinnnnnnnnnnnooooooooooosssssssssddddddccccchhhhhlllllffffmmmmppppuuuugggyyywwbjkqvxz")
-		rand.Shuffle(len(bag), func(i, j int) { bag[i], bag[j] = bag[j], bag[i] })
+	bag := []byte("eeeeeeeeeeeeeeeeeeetttttttttttttaaaaaaaaaaaarrrrrrrrrrrriiiiiiiiiiinnnnnnnnnnnooooooooooosssssssssddddddccccchhhhhlllllffffmmmmppppuuuugggyyywwbjkqvxz")
+	rand.Shuffle(len(bag), func(i, j int) { bag[i], bag[j] = bag[j], bag[i] })
 
-		board := make([][]string, boardSize)
+	board := make([][]string, boardSize)
 
-		for i := 0; i < boardSize; i++ {
-			board[i] = make([]string, boardSize)
-			for j := 0; j < boardSize; j++ {
-				board[i][j], bag = string(bag[:1]), bag[1:]
-			}
+	for i := 0; i < boardSize; i++ {
+		board[i] = make([]string, boardSize)
+		for j := 0; j < boardSize; j++ {
+			board[i][j], bag = string(bag[:1]), bag[1:]
 		}
+	}
 
-		c.JSON(200, startGameOutput{
-			Board: board,
-		})
+	c.JSON(200, startGameOutput{
+		Board: board,
 	})
 })
 

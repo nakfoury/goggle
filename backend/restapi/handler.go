@@ -5,10 +5,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var routes []func(r gin.IRoutes)
+var routes []struct {
+	path    string
+	handler gin.HandlerFunc
+}
 
-func register(fn func(r gin.IRoutes)) bool {
-	routes = append(routes, fn)
+func register(path string, handler gin.HandlerFunc) bool {
+	routes = append(routes, struct {
+		path    string
+		handler gin.HandlerFunc
+	}{
+		path:    path,
+		handler: handler,
+	})
 	return true
 }
 
@@ -24,8 +33,9 @@ func Handler(middleware ...gin.HandlerFunc) *gin.Engine {
 	r.Use(middleware...)
 
 	// Register API path handlers.
-	for _, fn := range routes {
-		fn(r)
+	for _, route := range routes {
+		r.POST(route.path, route.handler)
+		r.GET(route.path, route.handler)
 	}
 
 	return r
