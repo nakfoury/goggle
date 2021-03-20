@@ -44,7 +44,8 @@ type guessWordOutput struct {
 }
 
 // swagger:parameters guessWord
-type _ struct {
+// nolint
+type guessWordParameters struct {
 	// in:body
 	Body guessWordInput
 }

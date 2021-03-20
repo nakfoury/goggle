@@ -53,7 +53,8 @@ type startGameOutput struct {
 }
 
 // swagger:parameters startGame
-type _ struct {
+// nolint
+type startGameParameters struct {
 	// in:body
 	Body startGameInput
 }

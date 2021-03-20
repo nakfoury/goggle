@@ -21,6 +21,10 @@ export interface GuessWordOutput {
   correct: boolean;
 }
 
+export interface StartGameInput {
+  gameId: string;
+}
+
 export interface StartGameOutput {
   board: string[][];
 }
@@ -261,10 +265,12 @@ export class Api {
    * @name StartGame
    * @request POST:/startGame
    */
-  static startGame = (params: RequestParams = {}) =>
+  static startGame = (Body: StartGameInput, params: RequestParams = {}) =>
     Api.client.request<StartGameOutput, any>({
       path: `/startGame`,
       method: "POST",
+      body: Body,
+      type: ContentType.Json,
       format: "json",
       ...params,
     });

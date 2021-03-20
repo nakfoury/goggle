@@ -1,8 +1,5 @@
 <script lang="typescript">
-  import { mdiViewDashboardVariant } from '@mdi/js'
-  import { Api, StartGameInput, StartGameOutput } from './Api'
-  import type { HttpResponse } from './Api'
-  import { Table } from 'svelte-materialify/src'
+  import { Api } from './Api'
 
   const resp = Api.startGame({ gameId: 'ABCD' })
 </script>
