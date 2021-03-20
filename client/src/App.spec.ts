@@ -1,6 +1,7 @@
 import App from './App.svelte'
 import { render } from '@testing-library/svelte'
 import '@testing-library/jest-dom/extend-expect'
+import 'isomorphic-fetch'
 
 // The Tooltip component uses this function,
 // which jest does not implement by default,

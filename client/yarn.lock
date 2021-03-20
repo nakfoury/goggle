@@ -2655,6 +2655,7 @@ __metadata:
     "@tsconfig/svelte": ^1.0.0
     "@types/jest": ^26.0.20
     babel-jest: ^26.6.3
+    isomorphic-fetch: ^3.0.0
     jest: ^26.6.3
     node-sass: ^5.0.0
     nollup: ^0.15.2
@@ -4604,6 +4605,16 @@ __metadata:
   version: 3.0.1
   resolution: "isobject@npm:3.0.1"
   checksum: b537a9ccdd8d40ec552fe7ff5db3731f1deb77581adf9beb8ae812f8d08acfa0e74b193159ac50fb01084d7ade06d114077f984e21b8340531241bf85be9a0ab
+  languageName: node
+  linkType: hard
+
+"isomorphic-fetch@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "isomorphic-fetch@npm:3.0.0"
+  dependencies:
+    node-fetch: ^2.6.1
+    whatwg-fetch: ^3.4.1
+  checksum: 999c2845d440a6d53755d7954af40e55b38a25140a81f782aced55d56698f05aae8a0528ba6fd5630cc1040ecbf330c9858340a63b25645c0f81fa2f057fd0bb
   languageName: node
   linkType: hard
 
@@ -8587,6 +8598,13 @@ typescript@*:
   dependencies:
     iconv-lite: 0.4.24
   checksum: 44e4276ad2c770d1eb8c5a49294b863c581ef4bc78a10ac6a73a7eba00b377bc53ae0501d7ffce29a2c051b6af5ebbbd135f1da7d8eb98097af2cf12f7b2c984
+  languageName: node
+  linkType: hard
+
+"whatwg-fetch@npm:^3.4.1":
+  version: 3.6.2
+  resolution: "whatwg-fetch@npm:3.6.2"
+  checksum: eaa370015f81fbf7fc69d5410a13c2200d3342fa783397e9a7e64215498276459993c05e826ed736d28a8abe4e7cc3f97e9b2ffadbc58129a55f443abdfea494
   languageName: node
   linkType: hard
 
