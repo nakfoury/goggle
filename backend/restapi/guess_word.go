@@ -25,16 +25,16 @@ func init() {
 //	Responses:
 //		200: body:guessWordOutput
 var _ = register(func(r gin.IRoutes) {
-	r.POST("/guessWord", func(c *gin.Context) {
+	r.Any("/guessWord", func(c *gin.Context) {
 		var input guessWordInput
-		c.BindJSON(&input)
+		c.Bind(&input)
 		c.JSON(200, guessWordOutput{Correct: dictionary[strings.ToUpper(input.Word)]})
 	})
 })
 
 type guessWordInput struct {
 	// required:true
-	Word string `json:"word"`
+	Word string `json:"word" form:"word"`
 }
 
 // swagger:model

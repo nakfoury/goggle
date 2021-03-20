@@ -10,9 +10,9 @@ import (
 //	Responses:
 //		200: body:startGameOutput
 var _ = register(func(r gin.IRoutes) {
-	r.POST("/startGame", func(c *gin.Context) {
+	r.Any("/startGame", func(c *gin.Context) {
 		var input startGameInput
-		c.BindJSON(&input)
+		c.Bind(&input)
 
 		// Find out what game ID is starting
 
@@ -43,7 +43,7 @@ var _ = register(func(r gin.IRoutes) {
 
 type startGameInput struct {
 	// required:true
-	GameID string `json:"gameId"`
+	GameID string `json:"gameId" form:"gameId"`
 }
 
 // swagger:model

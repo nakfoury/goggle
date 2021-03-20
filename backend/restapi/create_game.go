@@ -8,7 +8,7 @@ import (
 //	Responses:
 //		200: body:createGameOutput
 var _ = register(func(r gin.IRoutes) {
-	r.POST("/createGame", func(c *gin.Context) {
+	r.Any("/createGame", func(c *gin.Context) {
 		c.JSON(200, createGameOutput{GameID: "ABCD"})
 	})
 })
