@@ -96,6 +96,7 @@ github.com/aws/aws-sdk-go v1.37.15 h1:W7l7gLLMcYRlg6a+uvf3Zz4jYwdqYzhe5ymqwWoOhp
 github.com/aws/aws-sdk-go v1.37.15/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/awslabs/aws-lambda-go-api-proxy v0.9.0 h1:oawiEVOu1ER3ROpDg8CaQ+V7A52frLGD3taPQjTywng=
 github.com/awslabs/aws-lambda-go-api-proxy v0.9.0/go.mod h1:O8jHVv+ga5Kpg8+6i8qSZFp9rnxC1KB/R2yNFNgtFis=
+github.com/awslabs/aws-lambda-go-api-proxy v0.10.0/go.mod h1:O8jHVv+ga5Kpg8+6i8qSZFp9rnxC1KB/R2yNFNgtFis=
 github.com/aymerick/douceur v0.2.0/go.mod h1:wlT5vV2O3h55X9m7iVYN0TBM0NH/MmbLnd30/FjWUq4=
 github.com/aymerick/raymond v2.0.3-0.20180322193309-b565731e1464+incompatible/go.mod h1:osfaiScAUVup+UC9Nfq76eWqDhXlp+4UYaA8uhTBO6g=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
