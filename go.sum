@@ -96,6 +96,8 @@ github.com/aws/aws-sdk-go v1.37.15 h1:W7l7gLLMcYRlg6a+uvf3Zz4jYwdqYzhe5ymqwWoOhp
 github.com/aws/aws-sdk-go v1.37.15/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/awslabs/aws-lambda-go-api-proxy v0.9.0 h1:oawiEVOu1ER3ROpDg8CaQ+V7A52frLGD3taPQjTywng=
 github.com/awslabs/aws-lambda-go-api-proxy v0.9.0/go.mod h1:O8jHVv+ga5Kpg8+6i8qSZFp9rnxC1KB/R2yNFNgtFis=
+github.com/awslabs/aws-lambda-go-api-proxy v0.11.0 h1:0BeMGwaoHRtwWa26+cg4+Xd1Tpb9mYWP0NDfu7HNyQk=
+github.com/awslabs/aws-lambda-go-api-proxy v0.11.0/go.mod h1:Epon214ULEemdKoA+Vp1D+qKfPKpjPTjH9f1Syo/CDk=
 github.com/aymerick/douceur v0.2.0/go.mod h1:wlT5vV2O3h55X9m7iVYN0TBM0NH/MmbLnd30/FjWUq4=
 github.com/aymerick/raymond v2.0.3-0.20180322193309-b565731e1464+incompatible/go.mod h1:osfaiScAUVup+UC9Nfq76eWqDhXlp+4UYaA8uhTBO6g=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
@@ -183,6 +185,7 @@ github.com/globalsign/mgo v0.0.0-20180905125535-1ca0a4f7cbcb/go.mod h1:xkRDCp4j0
 github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8/go.mod h1:xkRDCp4j0OGD1HRkm4kmhM+pmpv3AKq5SU7GMg4oO/Q=
 github.com/go-check/check v0.0.0-20180628173108-788fd7840127/go.mod h1:9ES+weclKsC9YodN5RgxqK/VD9HM9JsCSh7rNhMZE98=
 github.com/go-chi/chi v4.1.2+incompatible/go.mod h1:eB3wogJHnLi3x/kFX2A+IbTBlXxmMeXJVKy9tTv1XzQ=
+github.com/go-chi/chi/v5 v5.0.2/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNITLSKoi8=
 github.com/go-critic/go-critic v0.5.4 h1:fPNMqImVjELN6Du7NVVuvKA4cgASNmc7e4zSYQCOnv8=
 github.com/go-critic/go-critic v0.5.4/go.mod h1:cjB4YGw+n/+X8gREApej7150Uyy1Tg8If6F2XOAUXNE=
 github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1/go.mod h1:vR7hzQXu2zJy9AVAgeJqvqgH9Q5CA+iKCZ2gyEVpxRU=
