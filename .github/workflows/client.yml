@@ -44,7 +44,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - working-directory: client
         run: yarn install --immutable
-      - uses: Fooji/create-aws-profile-action@v1
+      - uses: Fooji/create-aws-profile-action@v3
         with:
           profile: goggle
           key: ${{ secrets.AWS_ACCESS_KEY_ID }}
