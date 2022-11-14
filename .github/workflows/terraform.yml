@@ -39,7 +39,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: ${{ env.TERRAFORM_VERSION }}
-      - uses: Fooji/create-aws-profile-action@v1
+      - uses: Fooji/create-aws-profile-action@v3
         with:
           profile: goggle
           key: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -58,7 +58,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: ${{ env.TERRAFORM_VERSION }}
-      - uses: Fooji/create-aws-profile-action@v1
+      - uses: Fooji/create-aws-profile-action@v3
         with:
           profile: goggle
           key: ${{ secrets.AWS_ACCESS_KEY_ID }}
